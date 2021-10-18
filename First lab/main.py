@@ -75,7 +75,7 @@ class RBTree:
             node = node.parent
         return node.parent
 
-    def insert(self, key):
+    def insert(self, key):  # вставляем элементы в дерево
         if self.root is None:
             self.root = RBNode(key)
             self.size += 1

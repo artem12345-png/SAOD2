@@ -1,3 +1,7 @@
+import json
+from treelib import Node, Tree
+
+
 def creater(nametree: str) -> dict:
     root = {
         f'{nametree}': [{}]
@@ -37,15 +41,33 @@ def delete(key: str, list_node: list) -> None:
 def lookup(key: str, list_node: list) -> any:
 
     if len(key) == 1:
-        return {f'{key}': list_node[0].get(key)[1]}
+        return list_node[0].get(key)[1]
 
     if new_list_node := list_node[0].get(key[0]):
         return lookup(key[1:], new_list_node)
 
 
-insert('artem', 15, root.get('root'))
-insert('artyom', 15, root.get('root'))
-print(root)
-delete('artem', root.get('root'))
-print(root)
-print(lookup('artem', root.get('root')))
+def saver():
+    with open('Tree.json', 'w') as f:
+        json.dump(root.get('root'), f, ensure_ascii=False, indent=' ', separators=("", ""))
+
+
+
+tree = Tree()
+tree.create_node('root', 'root')
+
+
+def show(list_node: list, tree: Tree, parent: str) -> None:
+    pass
+
+
+# {'root': [{'a': [{'r': [{'t': [{'e': [{'m': [{}, 15]}, None], 'y': [{'o': [{'m': [{'f': [{'g': [{}, 13232355]},
+
+
+
+
+insert('artyomfghgfhgfhg', 1423435, root.get('root'))
+get_edges(root)
+insert('artgfhgfyom', 14, root.get('root'))
+insert('artyomfghgfh', 13232355, root.get('root'))
+insert('artfghgfyom', 23455, root.get('root'))
